@@ -1,4 +1,5 @@
-export async function* httail(url: string, method: 'arrayBuffer'|'text' = 'arrayBuffer') {
+export async function* httail(url: string, method: 'arrayBuffer'|'text' = 'arrayBuffer'): AsyncIterator<ArrayBuffer|string, void, ArrayBuffer|string> {
+
     while (true) {
         const res = await fetch(url);
         yield await res[method]();
@@ -19,6 +20,6 @@ export async function* httail(url: string, method: 'arrayBuffer'|'text' = 'array
     }
 }
 
-function wait(s: number) {
+function wait(s: number): Promise<void> {
     return new Promise(y => setTimeout(y, s));
 }
