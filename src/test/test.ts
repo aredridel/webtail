@@ -2,8 +2,14 @@ import { httail } from "../index";
 import { createServer, ServerResponse } from "http";
 import { AddressInfo } from "net";
 
-import fetch from "node-fetch";
-(global as object & { fetch: typeof fetch }).fetch = fetch;
+import fetch from "cross-fetch";
+import { Headers } from "cross-fetch";
+const ourGlobal = global as object & {
+  fetch: typeof fetch;
+  Headers: Headers;
+};
+ourGlobal.fetch = fetch;
+ourGlobal.Headers = (<unknown>fetch as { Headers: Headers }).Headers;
 
 export async function test_simple_fetch() {
     await withServer(async (res) => {
