@@ -3,7 +3,6 @@ import { createServer, ServerResponse } from "http";
 import { AddressInfo } from "net";
 
 import fetch from "cross-fetch";
-import { Headers } from "cross-fetch";
 const ourGlobal = global as object & {
   fetch: typeof fetch;
   Headers: Headers;

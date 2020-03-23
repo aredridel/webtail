@@ -20,7 +20,7 @@
   "description": "",
   "devDependencies": {
     "@aredridel/best6": "^0.7.1",
-    "@types/node": "^13.9.0",
+    "@types/node": "^13.9.3",
     "@types/node-fetch": "^2.5.5",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
