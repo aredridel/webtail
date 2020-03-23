@@ -8,9 +8,9 @@ const ourGlobal = global as object & {
   Headers: Headers;
 };
 ourGlobal.fetch = fetch;
-ourGlobal.Headers = (<unknown>fetch as { Headers: Headers }).Headers;
+ourGlobal.Headers = ((fetch as unknown) as { Headers: Headers }).Headers;
 
-export async function test_simple_fetch() {
+export async function testSimpleFetch(): Promise<void> {
   await withServer(
     async res => {
       res.end("zzz");
@@ -23,7 +23,7 @@ export async function test_simple_fetch() {
   );
 }
 
-export async function test_simple_tail() {
+export async function testSimpleTail(): Promise<void> {
   let count = 0;
   await withServer(
     async res => {
@@ -48,14 +48,14 @@ export async function test_simple_tail() {
   );
 }
 
-function assert(condition: any, message?: string) {
+function assert(condition: boolean, message?: string): void {
   if (!condition) throw new Error(message || "expected true");
 }
 
 async function withServer(
   makeResponse: (arg0: ServerResponse) => Promise<void>,
   fn: (arg0: number) => Promise<void>
-) {
+): Promise<void> {
   const server = createServer(async (_req, res) => {
     await makeResponse(res);
   });
