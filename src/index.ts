@@ -1,4 +1,6 @@
-export async function* httail(url: string, method: 'arrayBuffer'|'text' = 'arrayBuffer'): AsyncIterator<ArrayBuffer|string, void, ArrayBuffer|string> {
+export function httail(url: string, method: 'text'): AsyncIterable<string>;
+export function httail(url: string, method: 'arrayBuffer'): AsyncIterable<ArrayBuffer>;
+export async function* httail(url: string, method: 'arrayBuffer'|'text' = 'arrayBuffer'): AsyncIterable<ArrayBuffer|string> {
 
     let lastModified = null;
     while (true) {
