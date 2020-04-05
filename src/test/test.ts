@@ -1,14 +1,8 @@
+import "./fetch-polyfill.cjs";
+
 import { httail } from "../index";
 import { createServer, ServerResponse } from "http";
 import { AddressInfo } from "net";
-
-import fetch from "cross-fetch";
-const ourGlobal = global as object & {
-  fetch: typeof fetch;
-  Headers: Headers;
-};
-ourGlobal.fetch = fetch;
-ourGlobal.Headers = ((fetch as unknown) as { Headers: Headers }).Headers;
 
 export async function testSimpleFetch(): Promise<void> {
   await withServer(

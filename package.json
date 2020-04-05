@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "ttsc",
+    "prepare": "ttsc && cp src/test/*.cjs dist/test/",
     "test": "best6 -v -I 'dist/test/**/*.js'"
   },
   "author": "Aria Stewart <aredridel@dinhe.net>",
@@ -21,13 +21,11 @@
   "devDependencies": {
     "@aredridel/best6": "^0.7.1",
     "@types/node": "^13.9.3",
-    "@types/node-fetch": "^2.5.5",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
     "@zoltu/typescript-transformer-append-js-extension": "^1.0.1",
-    "cross-fetch": "^3.0.4",
     "eslint": "^6.8.0",
-    "node-fetch": "^2.6.0",
+    "fetch-h2": "^2.4.5",
     "ttypescript": "^1.5.10",
     "typescript": "^3.8.3"
   }

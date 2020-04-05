@@ -1,7 +1,15 @@
 export async function* httail(url: string, method: 'arrayBuffer'|'text' = 'arrayBuffer'): AsyncIterator<ArrayBuffer|string, void, ArrayBuffer|string> {
 
+    let lastModified = null;
     while (true) {
-        const res = await fetch(url);
+        const headers = new Headers();
+        if (lastModified) {
+            headers.append('If-Nodified-Since', lastModified);
+        }
+        const res = await fetch(url, { headers });
+
+        lastModified = res.headers.get('Last-Modified')
+
         yield await res[method]();
 
         const retryAfter = res.headers.get('Retry-After');

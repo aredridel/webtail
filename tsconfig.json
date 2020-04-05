@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "isolatedModules": true,
-    "module": "ESNext",
+    "module": "ES2020",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "dist",
@@ -20,5 +20,5 @@
     "typeRoots": ["node_modules/@types"]
   },
   "lib": ["dom"],
-  "include": ["src/**/*.ts"]
+  "include": ["src"]
 }
