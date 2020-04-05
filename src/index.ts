@@ -22,11 +22,9 @@ export async function* httail(url: string, method: 'arrayBuffer'|'text' = 'array
 
         const retryAfterAsTimestamp = Number(new Date(retryAfter));
 
-        if (isNaN(retryAfterAsTimestamp)) {
-            throw new Error(`Invalid Date: ${retryAfter}`);
+        if (!isNaN(retryAfterAsTimestamp)) {
+            await wait(Math.max(0, retryAfterAsTimestamp - Date.now()))
         }
-
-        await wait(Math.max(0, retryAfterAsTimestamp - Date.now()))
     }
 }
 
