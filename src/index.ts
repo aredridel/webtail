@@ -8,6 +8,9 @@ export async function* httail(url: string, method: 'arrayBuffer'|'text' = 'array
         if (lastModified) {
             headers.append('If-Nodified-Since', lastModified);
         }
+
+        headers.append('Prefer', 'follow');
+
         const res = await fetch(url, { headers });
 
         lastModified = res.headers.get('Last-Modified')
