@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "ttsc && cp src/test/*.cjs dist/test/",
+    "prepare": "ttsc && cp src/test/*.cjs src/test/*.pem dist/test/",
     "test": "best6 -v -I 'dist/test/**/*.js'"
   },
   "author": "Aria Stewart <aredridel@dinhe.net>",
