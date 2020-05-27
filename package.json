@@ -4,8 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "ttsc && cp src/test/*.cjs src/test/*.pem dist/test/",
-    "test": "best6 -v -I 'dist/test/**/*.js'"
+    "prepare": "ttsc",
+    "test": "ttsc && best6 -v -I 'dist/test/**/*.js'"
   },
   "author": "Aria Stewart <aredridel@dinhe.net>",
   "license": "ISC",
@@ -19,14 +19,15 @@
   "homepage": "https://github.com/aredridel/webtail#readme",
   "description": "",
   "devDependencies": {
-    "@aredridel/best6": "^0.7.1",
-    "@types/node": "^13.9.3",
-    "@typescript-eslint/eslint-plugin": "^2.24.0",
-    "@typescript-eslint/parser": "^2.24.0",
+    "@aredridel/best6": "^0.7.2",
+    "@aredridel/fetch-h2-esm-shim": "^1.2004005.1",
+    "@types/node": "^13.13.9",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
     "@zoltu/typescript-transformer-append-js-extension": "^1.0.1",
     "eslint": "^6.8.0",
     "fetch-h2": "^2.4.5",
     "ttypescript": "^1.5.10",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3"
   }
 }

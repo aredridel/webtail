@@ -1,4 +1,4 @@
-import "./fetch-polyfill.cjs";
+import "../fetch-polyfill";
 
 import { httail } from "../index";
 import { createServer, ServerResponse } from "http";
@@ -84,8 +84,8 @@ async function withServer(
   }
 }
 
-const cert = readFileSync("dist/test/cert.pem");
-const key = readFileSync("dist/test/key.pem");
+const cert = readFileSync("test-cert.pem");
+const key = readFileSync("test-key.pem");
 
 async function withHTTP2Server(
   makeResponse: (arg0: Http2ServerResponse) => Promise<void>,
